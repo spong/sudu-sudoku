@@ -2,20 +2,21 @@ import React from 'react';
 
 export default class RadialInput extends React.Component {
   onInputReceived(e, i) {
-    if (this.props.cb) {
-      this.props.cb(i, this.props.selectedCell);
+    const { cb, selectedCell } = this.props;
+    if (cb) {
+      cb(i, selectedCell);
     }
   }
 
   render() {
-    let top = 100; let
-      left = 100;
-
-    if (this.props.selectedCell) {
-      ({ top, left } = document.getElementById(`square-${this.props.selectedCell}`).getBoundingClientRect());
+    let top = 100;
+    let left = 100;
+    const { selectedCell } = this.props;
+    if (selectedCell) {
+      ({ top, left } = document.getElementById(`square-${selectedCell}`).getBoundingClientRect());
     }
     const style = {
-      display: (this.props.selectedCell) ? 'grid' : 'none',
+      display: (selectedCell) ? 'grid' : 'none',
       top: `${top}px`,
       left: `${left}px`,
     };
@@ -23,6 +24,7 @@ export default class RadialInput extends React.Component {
       <div className="ri-container" style={style}>
         {[...Array(9).keys()].map(i => (
           <button
+            type="button"
             key={i + 1}
             className="ri-button"
             onClick={e => this.onInputReceived(e, i + 1)}
