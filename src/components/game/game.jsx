@@ -19,7 +19,10 @@ export default class Game extends React.Component {
   }
 
   handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    let { history } = this.state;
+    const { stepNumber, xIsNext } = this.state;
+    history = history.slice(0, stepNumber + 1);
+
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     // if (calculateWinner(squares) || squares[i]) {
@@ -31,7 +34,7 @@ export default class Game extends React.Component {
       }]),
       selectedCell: i,
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
+      xIsNext: !xIsNext,
     });
   }
 
@@ -39,7 +42,7 @@ export default class Game extends React.Component {
     // eslint-disable-next-line no-console
     console.log(`${e.key} ${i}`);
 
-    let selectedCell = this.state.selectedCell;
+    let { selectedCell } = this.state;
     if (e.key === 'Escape') {
       selectedCell = null;
     } else if (e.which >= 49 && e.which <= 57) {
@@ -55,7 +58,10 @@ export default class Game extends React.Component {
   }
 
   handleInput(i, cell) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    let { history } = this.state;
+    const { stepNumber } = this.state;
+    history = history.slice(0, stepNumber + 1);
+
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
@@ -78,22 +84,22 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const { history, selectedCell, stepNumber } = this.state;
+    const current = history[stepNumber];
     // const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
-      const desc = move
-        ? `Go to move #${move}`
-        : 'Go to game start';
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
-    });
+    // const moves = history.map((step, move) => {
+    //   const desc = move
+    //     ? `Go to move #${move}`
+    //     : 'Go to game start';
+    //   return (
+    //     <li key={move}>
+    //       <button onClick={() => this.jumpTo(move)}>{desc}</button>
+    //     </li>
+    //   );
+    // });
 
-    let status;
+    // let status;
     // if (winner) {
     //   status = `Winner: ${winner}`;
     // } else {
@@ -103,13 +109,13 @@ export default class Game extends React.Component {
     return (
       <div className="game">
         <RadialInput
-          selectedCell={this.state.selectedCell}
+          selectedCell={selectedCell}
           cb={(i, cell) => this.handleInput(i, cell)}
         />
         <div className="game-board">
           <Board
             squares={current.squares}
-            selectedCell={this.state.selectedCell}
+            selectedCell={selectedCell}
             onClick={i => this.handleClick(i)}
             onKeyPress={(e, i) => this.handleKeyPress(e, i)}
             tabIndex="0"
