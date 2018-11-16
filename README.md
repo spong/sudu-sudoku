@@ -1,44 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Super Duper Sudoku!
 
-## Available Scripts
+A feature-rich & UX-friendly Sudoku app a little different than the rest! 
+Super Duper Sudoku aims to offer a highly customizable and easy-on-the-eyes Sudoku experience for both mobile and desktop puzzlers! 
 
-In the project directory, you can run:
 
-### `npm start`
+#### Project Intent
+As I dive back into web development after a healthy stint of Data Science/Engineering & Android development, I wanted a project I could get totally absorbed in, and building UX-focused Sudoku app is just that! Additional intent comes from wanting to see how far along PWA's have come and to provide an ad-free mobile experience.     
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### Progress
+- [x] Grid UI 
+- [x] Cell Selection
+- [x] Basic Radial & Keyboard Input
+- [x] Number Generation
+- [ ] Row/Column/Region Highlighting
+- [ ] Note UI
+- [ ] GamePlay Controls/Progress Indicator
+- [ ] Puzzle Generation
+- [ ] Puzzle Validation
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+####  Features
+- [ ] Enhanced Touch Input (Radial Input)
+- [ ] Gameplay Analytics (Charts & Graphs!) 
+- [ ] Automatic Notes w/ Granular Control
+- [ ] Custom Theming
+- [ ] Gameplay/Analytics Persistence
 
-### `npm run build`
+Picking the scope corner of the beloved [Triangle of the Gods](https://en.wikipedia.org/wiki/Project_management_triangle)...
+- [ ] Network Play (2+ Player)
+    - [ ] Puzzle Race Co-op
+    - [ ] Puzzle Race Individual
+- [ ] Offline Multi-Device Network Play via [Bluetooth](https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web) / [Web Audio](https://quiet.github.io/quiet-js/)   
+- [ ] [Eye Tracking](https://webgazer.cs.brown.edu/)!
+ 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+####  Puzzle Generation Algorithm 
