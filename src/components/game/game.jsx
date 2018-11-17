@@ -13,6 +13,7 @@ export default class Game extends React.Component {
           .map(e => (Math.random() >= 0.5 ? e : undefined)),
       }],
       selectedCell: 0,
+      selectedValue: 0,
       showRadialInput: false,
       stepNumber: 0,
       xIsNext: true,
@@ -35,7 +36,7 @@ export default class Game extends React.Component {
     clearTimeout(this.buttonPressTimer);
   }
 
-  handleClick(i) {
+  handleClick(i, value) {
     let { history } = this.state;
     const { stepNumber, xIsNext } = this.state;
     history = history.slice(0, stepNumber + 1);
@@ -50,6 +51,7 @@ export default class Game extends React.Component {
         squares,
       }]),
       selectedCell: i,
+      selectedValue: value,
       showRadialInput: i === 0,
       stepNumber: history.length,
       xIsNext: !xIsNext,
@@ -102,7 +104,7 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const { history, selectedCell, stepNumber, showRadialInput } = this.state;
+    const { history, selectedCell, selectedValue, stepNumber, showRadialInput } = this.state;
     const current = history[stepNumber];
     // const winner = calculateWinner(current.squares);
 
@@ -136,7 +138,8 @@ export default class Game extends React.Component {
           <Board
             squares={current.squares}
             selectedCell={selectedCell}
-            onClick={i => this.handleClick(i)}
+            selectedValue={selectedValue}
+            onClick={(i, v) => this.handleClick(i, v)}
             onTouchStart={i => this.handleButtonPress(i)}
             onTouchEnd={i => this.handleButtonRelease(i)}
             onMouseDown={i => this.handleButtonPress(i)}

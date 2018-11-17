@@ -66,11 +66,15 @@ ol, ul {
 }
 
 .square.selected {
-  background-color: rgba(92, 93, 255, 0.13);
+  background-color: rgba(92, 139, 255, 0.64);
+}
+
+.square.neighbor-selected {
+  background-color: rgba(92, 139, 255, 0.38);
 }
 
 .square:hover {
-  background-color: rgba(92, 93, 255, 0.13);
+  background-color: rgba(92, 139, 255, 0.81);
 }
 
 .square:focus {
