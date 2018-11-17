@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 export default class RadialInput extends React.Component {
   onInputReceived(e, i) {
-    const { cb, selectedCell } = this.props;
+    const {cb, selectedCell} = this.props;
     if (cb) {
       cb(i, selectedCell);
     }
@@ -11,9 +11,9 @@ export default class RadialInput extends React.Component {
   render() {
     let top = 100;
     let left = 100;
-    const { selectedCell } = this.props;
+    const {selectedCell} = this.props;
     if (selectedCell) {
-      ({ top, left } = document.getElementById(`square-${selectedCell}`).getBoundingClientRect());
+      ({top, left} = document.getElementById(`square-${selectedCell}`).getBoundingClientRect());
     }
     const style = {
       display: (selectedCell) ? 'grid' : 'none',

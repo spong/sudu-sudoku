@@ -11,6 +11,10 @@ export default class Board extends React.Component {
         value={squares[i - 1]}
         isSelected={this.props.selectedCell === i}
         onClick={() => this.props.onClick(i)}
+        onTouchStart={() => this.props.onTouchStart(i)}
+        onTouchEnd={() => this.props.onTouchEnd(i)}
+        onMouseDown={() => this.props.onMouseDown(i)}
+        onMouseUp={() => this.props.onMouseUp(i)}
         onKeyPress={e => this.props.onKeyPress(e, i)}
       />
     );

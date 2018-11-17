@@ -13,9 +13,26 @@ export default class Game extends React.Component {
           .map(e => (Math.random() >= 0.5 ? e : undefined)),
       }],
       selectedCell: 0,
+      showRadialInput: false,
       stepNumber: 0,
       xIsNext: true,
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleButtonPress = this.handleButtonPress.bind(this);
+    this.handleButtonRelease = this.handleButtonRelease.bind(this);
+  }
+
+
+  handleButtonPress() {
+    this.buttonPressTimer = setTimeout(() => {
+      this.setState({
+        showRadialInput: true
+      })
+    }, 300);
+  }
+
+  handleButtonRelease() {
+    clearTimeout(this.buttonPressTimer);
   }
 
   handleClick(i) {
@@ -33,6 +50,7 @@ export default class Game extends React.Component {
         squares,
       }]),
       selectedCell: i,
+      showRadialInput: i === 0,
       stepNumber: history.length,
       xIsNext: !xIsNext,
     });
@@ -84,7 +102,7 @@ export default class Game extends React.Component {
   }
 
   render() {
-    const { history, selectedCell, stepNumber } = this.state;
+    const { history, selectedCell, stepNumber, showRadialInput } = this.state;
     const current = history[stepNumber];
     // const winner = calculateWinner(current.squares);
 
@@ -108,15 +126,21 @@ export default class Game extends React.Component {
 
     return (
       <div className="game">
-        <RadialInput
+        {showRadialInput &&
+          <RadialInput
           selectedCell={selectedCell}
+
           cb={(i, cell) => this.handleInput(i, cell)}
-        />
+        />}
         <div className="game-board">
           <Board
             squares={current.squares}
             selectedCell={selectedCell}
             onClick={i => this.handleClick(i)}
+            onTouchStart={i => this.handleButtonPress(i)}
+            onTouchEnd={i => this.handleButtonRelease(i)}
+            onMouseDown={i => this.handleButtonPress(i)}
+            onMouseUp={i => this.handleButtonRelease(i)}
             onKeyPress={(e, i) => this.handleKeyPress(e, i)}
             tabIndex="0"
           />
