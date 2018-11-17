@@ -75,6 +75,7 @@ ol, ul {
 
 .square:hover {
   background-color: rgba(92, 139, 255, 0.81);
+  cursor: pointer;
 }
 
 .square:focus {

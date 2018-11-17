@@ -13,7 +13,7 @@ export default class Game extends React.Component {
           .map(e => (Math.random() >= 0.5 ? e : undefined)),
       }],
       selectedCell: 0,
-      selectedValue: 0,
+      selectedValue: undefined,
       showRadialInput: false,
       stepNumber: 0,
       xIsNext: true,

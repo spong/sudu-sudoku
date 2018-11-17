@@ -36,3 +36,4 @@ Picking the scope corner of the beloved [Triangle of the Gods](https://en.wikipe
  
 
 ####  Puzzle Generation Algorithm 
+* [Sudoku Generation as an Inverse Problem](https://sites.math.washington.edu/~morrow/mcm/team2306.pdf)
