@@ -67,7 +67,6 @@ export default class Game extends React.Component {
       selectedCell = null;
     } else if (e.which >= 49 && e.which <= 57) {
       this.handleInput(e.key, i);
-      selectedCell = null;
     } else {
       return;
     }
@@ -91,7 +90,7 @@ export default class Game extends React.Component {
       history: history.concat([{
         squares,
       }]),
-      selectedCell: null,
+      showRadialInput: false,
       stepNumber: history.length,
     });
   }

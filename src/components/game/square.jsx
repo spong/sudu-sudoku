@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 export default function Square(props) {
   function getNeighborCells(id) {
@@ -35,8 +36,24 @@ export default function Square(props) {
     (props.value || props.isSelected) && props.selectedValue === props.value ? 'selected' : '',
     !props.isSelected && neighborCells.includes(props.id) ? 'neighbor-selected' : '',
   ];
+
+  const Button = styled.button`
+  props.id % 2 === 0 ? 'even' : 'odd',
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+`;
   return (
-    <button
+    <Button
       id={`square-${props.id}`}
       className={classes.join(" ")}
       onClick={() => props.onClick(props.value)}
@@ -48,6 +65,6 @@ export default function Square(props) {
       onKeyDown={props.onKeyPress}
     >
       {props.value}
-    </button>
+    </Button>
   );
 }
