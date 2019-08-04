@@ -13,7 +13,7 @@ As I dive back into web development after a healthy stint of Data Science/Engine
 - [x] Cell Selection
 - [x] Basic Radial & Keyboard Input
 - [x] Number Generation
-- [ ] Row/Column/Region Highlighting
+- [x] Row/Column/Region Highlighting
 - [ ] Note UI
 - [ ] GamePlay Controls/Progress Indicator
 - [ ] Puzzle Generation
